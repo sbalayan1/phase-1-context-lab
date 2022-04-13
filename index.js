@@ -36,6 +36,25 @@ let createTimeOutEvent = function(input) {
     return this
 }
 
+let hoursWorkedOnDate = function(date) {
+    let timeIn = this.timeInEvents.find(record => record.date === date)
+    let timeOut = this.timeOutEvents.find(record => record.date === date)
+    let hoursWorked = ((timeOut.hour - timeIn.hour)/100)
+
+    return hoursWorked
+}
+
+let wagesEarnedOnDate = function(date) {
+    let hours = hoursWorkedOnDate.call(this, date)
+    let wages = hours * this.payPerHour
+    return wages
+}
+
+let findEmployeeByFirstName = (employees, firstName) => {
+    let employee = employees.find(employee => employee.firstName === firstName)
+    return employee
+}
+
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
