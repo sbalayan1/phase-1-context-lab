@@ -55,6 +55,11 @@ let findEmployeeByFirstName = (employees, firstName) => {
     return employee
 }
 
+let calculatePayroll = (employee) => {
+    let totalWages = employee.reduce((memo, record) => memo + allWagesFor.call(record), 0)
+    return totalWages
+}
+
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
