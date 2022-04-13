@@ -1,5 +1,5 @@
 let createEmployeeRecord = (array) => {
-    let employeeRecord = {
+    return {
         firstName: array[0],
         familyName: array[1],
         title: array[2],
@@ -7,8 +7,33 @@ let createEmployeeRecord = (array) => {
         timeInEvents: [], 
         timeOutEvents: []
     }
+}
 
-    return employeeRecord
+let createEmployeeRecords = (arrayOfEmployees) => arrayOfEmployees.map(employee => createEmployeeRecord(employee))
+
+let createTimeInEvent = function(input) {
+    let [d, h] = input.split(' ')
+
+    this.timeInEvents.push({
+        type: "TimeIn", 
+        hour: parseInt(h, 10),
+        date: d
+    })
+
+    return this
+}
+
+
+let createTimeOutEvent = function(input) {
+    let [d, h] = input.split(' ')
+
+    this.timeOutEvents.push({
+        type: "TimeOut",
+        hour: parseInt(h, 10),
+        date: d,
+    })
+
+    return this
 }
 
 /*
